@@ -21,21 +21,22 @@ const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({ event }) => {
 
   return (
     <div className="m-auto">
-      <div className="grid grid-cols-3 mx-2">
-        <div className="col-span-1 border-2">
+      <div className="grid grid-cols-3 mx-2 bg-white">
+        <div className="col-span-1">
           <div className="flex flex-col h-full">
-            <div className="flex-grow border-2 pt-2">
+            <div className="text-zinc-600 flex-grow border-2 pt-2">
               {day} {month}
             </div>
-            <div className="w-full bg-zinc-600 text-white border-2 p-1">
+            <div className="w-full bg-turquoise text-white border-2 p-1">
               {hour}
             </div>
           </div>
         </div>
 
-        <div className="col-span-2 border-2 p-5">
+        <div className="col-span-2 border-2 p-5 ">
           {" "}
-          <div> {event.title} </div> <div> {event.description} </div>{" "}
+          <div className="text-turquoise font-bold"> {event.title} </div>{" "}
+          <div className="text-zinc-600"> {event.description} </div>{" "}
         </div>
       </div>
     </div>
