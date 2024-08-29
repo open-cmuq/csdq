@@ -1,8 +1,9 @@
 //import reactLogo from "./assets/react.svg";
 //import viteLogo from "/vite.svg";
 import React, { useEffect, useState } from "react";
-import "./App.css";
+import "./styles/App.css";
 import UpcomingEvents from "./components/UpcomingEvents";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const AppNavbar = () => {
   interface NavbarItemProps {
@@ -49,7 +50,11 @@ const AppHeader = () => {
   console.log(scrolled);
   return (
     <header
-      className={`sticky top-0 ${scrolled ? "bg-white text-black" : "bg-transparent hover:bg-white hover:text-black"} p-4 transition-colors duration-400 ease-in-out`}
+      className={`sticky top-0 ${
+        scrolled
+          ? "bg-white text-black"
+          : "bg-transparent hover:bg-white hover:text-black"
+      } p-4 transition-colors duration-400 ease-in-out`}
     >
       <div className="container mx-auto grid grid-cols-3 items-center">
         <div className="col-span-1 w-10 hover:-rotate-12 cursor-pointer">
