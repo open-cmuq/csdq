@@ -65,7 +65,7 @@ function UpcomingEvents() {
 
   return (
     <>
-      <p className="mt-2 p-4 text-3xl font-bold flex justify-start">
+      <p className="m-3 p-4 text-3xl font-bold flex justify-start">
         Upcoming CS Events:
       </p>
       <div className="flex box-border justify-center items-center mt-2 w-screen h-40 bg-black">

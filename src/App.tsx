@@ -1,6 +1,6 @@
 //import reactLogo from "./assets/react.svg";
 //import viteLogo from "/vite.svg";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import UpcomingEvents from "./components/UpcomingEvents";
 
@@ -18,7 +18,7 @@ const AppNavbar = () => {
   };
 
   return (
-    <nav className="font-bold col-span-2 flex justify-center space-x-4">
+    <nav className="flex justify-center space-x-4 font-bold col-span-2">
       <NavbarItem name="Home" />
       <NavbarItem name="Events" />
       <NavbarItem name="Research" />
@@ -28,15 +28,34 @@ const AppNavbar = () => {
 };
 
 const AppHeader = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(window.scrollY);
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  console.log(scrolled);
   return (
-    <header className="sticky top-0 bg-gray-950 text-pureWhite p-4">
+    <header
+      className={`sticky top-0 ${scrolled ? "bg-white text-black" : "bg-transparent hover:bg-white hover:text-black"} p-4 transition-colors duration-400 ease-in-out`}
+    >
       <div className="container mx-auto grid grid-cols-3 items-center">
-        {/* Col1: logo */}
         <div className="col-span-1 w-10 hover:-rotate-12 cursor-pointer">
           <img src="/images/cs_logo.png" />
         </div>
 
-        {/* Col2: Nav bar */}
         <AppNavbar />
       </div>
     </header>
@@ -48,9 +67,9 @@ function App() {
     <>
       <AppHeader />
 
-      <div className="flex ">
-        <img src="/images/christos.jpeg" className="w-screen" />
-      </div>
+      <div className="homepage-background"></div>
+      {/* empty div for visual space, bad hack */}
+      <div style={{ height: "65vh" }}></div>
 
       <div className="p-2">Hello</div>
       <div className="p-2">Hello</div>

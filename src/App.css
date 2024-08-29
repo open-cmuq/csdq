@@ -11,7 +11,7 @@
 
 nav button {
   padding: 1rem;
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0) /*rgba(0, 0, 0, 0.3)*/;
   border-radius: 0.2em;
   background-color: transparent;
   cursor: pointer;
@@ -25,5 +25,19 @@ nav button:hover {
   opacity: 0.6;
   color: red;
   /* background-color: red; */
-  border-color: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(255, 255, 255, 1) /*rgba(0, 0, 0, 0.3)*/;
+  border-color: rgba(0, 0, 0, 0.3) /*rgba(255, 255, 255, 1)*/;
+}
+
+.homepage-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70vh;
+  background-image: url("/images/christos.jpeg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: -1; /* ensure stays behind content */
 }
