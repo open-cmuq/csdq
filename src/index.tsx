@@ -5,11 +5,18 @@ import Home from "./pages/home.tsx";
 import ErrorPage from "./pages/error.tsx";
 import News from "./pages/news.tsx";
 import Events from "./pages/events.tsx";
+import { loader as researchLoader } from "./pages/research.tsx";
 import Research from "./pages/research.tsx";
 import "./styles/index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  ProfessorProfile,
+  loader as professorLoader,
+} from "./pages/professorProfile.tsx";
+import ProfessorError from "./pages/professor-error.tsx";
 
+// TODO: perhaps turn the routes into JSX
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,10 +34,17 @@ const router = createBrowserRouter([
       {
         path: "/research",
         element: <Research />,
+        loader: researchLoader,
       },
       {
         path: "/news",
         element: <News />,
+      },
+      {
+        path: "research/:professorId",
+        element: <ProfessorProfile />,
+        loader: professorLoader,
+        errorElement: <ProfessorError />,
       },
     ],
   },

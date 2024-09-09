@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 105%; /* TODO: fix this hack, i don't know why bg doesn't fill viewport */
   background-position: top;
   background-repeat: no-repeat;
   background-size: 100%;
