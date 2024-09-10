@@ -32,8 +32,6 @@ export function ProfessorProfile() {
   const data: ProfileLoaderData | null =
     useLoaderData() as ProfileLoaderData | null;
 
-  console.log(data);
-
   if (!data) {
     // error handling
     throw new Response("Not Found", { status: 404 });
