@@ -12,6 +12,21 @@ module.exports = {
         lightGrey: "#E0E0E0", // RGB: 224, 224, 224
         pureWhite: "#FFFFFF", // RGB: 255, 255, 255
       },
+      // for professorProfile.tsx
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateX(-10px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        fadeOut: {
+          "0%": { opacity: "1", transform: "translateX(0)" },
+          "100%": { opacity: "0", transform: "translateX(-10px)" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.2s ease-out forwards",
+        fadeOut: "fadeOut 0.2s ease-out forwards",
+      },
     },
   },
   plugins: [],

@@ -11,7 +11,7 @@ import "./styles/index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
-  ProfessorProfile,
+  ProfessorProfilePage,
   loader as professorLoader,
 } from "./pages/professorProfile.tsx";
 import ProfessorError from "./pages/professor-error.tsx";
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "research/:professorId",
-        element: <ProfessorProfile />,
+        element: <ProfessorProfilePage />,
         loader: professorLoader,
         errorElement: <ProfessorError />,
       },
