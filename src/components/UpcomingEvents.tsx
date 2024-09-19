@@ -20,23 +20,22 @@ const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({ event }) => {
   });
 
   return (
-    <div className="m-auto">
-      <div className="grid grid-cols-3 mx-2 bg-white">
-        <div className="col-span-1">
-          <div className="flex flex-col h-full">
-            <div className="text-zinc-600 flex-grow border-2 pt-2">
-              {day} {month}
-            </div>
-            <div className="w-full bg-turquoise text-white border-2 p-1">
-              {hour}
-            </div>
+    <div className="m-auto w-full max-w-sm sm:max-w-md lg:max-w-lg">
+      <div className="grid grid-cols-1 sm:grid-cols-3 bg-white rounded-lg shadow-md overflow-hidden">
+        {/* date and time  */}
+        <div className="sm:col-span-1 flex sm:flex-col items-center sm:items-start bg-gray-50 p-3 border-r-2 sm:border-r-0">
+          <div className="text-zinc-600 text-xl font-semibold mr-4">
+            {day} {month}
+          </div>
+          <div className="bg-turquoise text-white font-medium text-sm px-2 py-1 rounded mt-2 sm:mt-4">
+            {hour}
           </div>
         </div>
 
-        <div className="col-span-2 border-2 p-5 ">
-          {" "}
-          <div className="text-turquoise font-bold"> {event.title} </div>{" "}
-          <div className="text-zinc-600"> {event.description} </div>{" "}
+        {/* event details */}
+        <div className="sm:col-span-2 p-4">
+          <h3 className="text-turquoise font-bold text-lg">{event.title}</h3>
+          <p className="text-zinc-600 text-sm mt-1">{event.description}</p>
         </div>
       </div>
     </div>
@@ -44,22 +43,25 @@ const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({ event }) => {
 };
 
 function UpcomingEvents() {
-  const myEventDate = new Date("2024-09-01T10:30:00");
-  const events: Event[] = [
+  // example Event Data
+  const events = [
     {
-      title: "Event 1",
-      description: "Description for Event 1",
       date: new Date("2024-09-01T10:30:00"),
+      title: "AI and Machine Learning Seminar",
+      description:
+        "Join us for an insightful seminar on the latest trends in AI and Machine Learning.",
     },
     {
-      title: "Event 2",
-      description: "Description for Event 2",
-      date: new Date("2024-09-02T15:45:00"),
+      date: new Date("2024-09-15T09:00:00"),
+      title: "Robotics Workshop",
+      description:
+        "Hands-on workshop exploring the world of robotics and automation technologies.",
     },
     {
-      title: "Event 3",
-      description: "Description for Event 3",
-      date: new Date("2024-09-03T18:00:00"),
+      date: new Date("2024-10-05T14:00:00"),
+      title: "Cybersecurity Conference",
+      description:
+        "A conference dedicated to the latest in cybersecurity research and practices.",
     },
   ];
 
@@ -68,7 +70,7 @@ function UpcomingEvents() {
       <p className="m-3 p-4 text-3xl font-bold flex justify-start">
         Upcoming CS Events:
       </p>
-      <div className="flex box-border justify-center items-center mt-2 w-100 h-40 bg-black">
+      <div className="flex flex-wrap justify-center items-center mt-2 bg-black p-4 gap-6">
         {events.slice(0, 3).map((event, idx) => (
           <UpcomingEventCard key={idx} event={event} />
         ))}

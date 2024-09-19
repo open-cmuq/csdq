@@ -1,8 +1,8 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import "../styles/research.css";
 import { getProfessors } from "../professors";
-import { Link } from "react-router-dom";
 
 interface ProfessorProfile {
   name: string;
@@ -27,18 +27,27 @@ export async function loader(): Promise<LoaderData> {
 const ProfessorCard: React.FC<ProfessorCardProps> = ({ professor }) => {
   return (
     <Link to={`${professor.id}`}>
-      <div
-        className="flex border-black border-2 p-8 m-4 max-w-sm rounded 
-                    hover:bg-opacity-70 hover:bg-slate-100 hover:cursor-pointer"
+      <motion.div
+        className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+        whileHover={{ scale: 1.05 }} // Slight scaling effect on hover
+        initial={{ opacity: 0, y: 20 }} // Initial animation state
+        animate={{ opacity: 1, y: 0 }} // Animation to final state
+        transition={{ duration: 0.4 }} // Duration of the animation
       >
-        <div className="flex flex-shrink-0 items-center">
+        <div className="flex items-center p-4">
           <img
-            src="/images/cs_logo.png"
-            style={{ width: "80px", height: "100px" }}
+            src={professor.pic}
+            alt={professor.name}
+            className="w-20 h-28 rounded object-cover mr-4"
           />
+          <div className="flex flex-col">
+            <h3 className="text-xl font-bold text-gray-800">
+              {professor.name}
+            </h3>
+            <p className="text-sm text-gray-600">{professor.researchDesc}</p>
+          </div>
         </div>
-        <div className="flex items-center">{professor.researchDesc}</div>
-      </div>
+      </motion.div>
     </Link>
   );
 };
@@ -47,17 +56,14 @@ export default function Research() {
   const { professors }: LoaderData = useLoaderData() as LoaderData;
 
   return (
-    <>
-      <div className="events-background bg-indigo-200"></div>
-
-      <div className="ml-96">
-        <div className="profiles-container grid grid-cols-2 gap-8 box-border">
-          {professors &&
-            professors.map((professor: ProfessorProfile, idx: number) => (
-              <ProfessorCard professor={professor} key={idx} />
-            ))}
-        </div>
+    <div className="p-8">
+      <h1 className="text-3xl font-bold text-center mb-8">Our Researchers</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {professors &&
+          professors.map((professor: ProfessorProfile, idx: number) => (
+            <ProfessorCard professor={professor} key={idx} />
+          ))}
       </div>
-    </>
+    </div>
   );
 }
