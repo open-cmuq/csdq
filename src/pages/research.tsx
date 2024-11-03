@@ -9,6 +9,7 @@ interface ProfessorProfile {
   id: string;
   pic: string;
   researchDesc: string;
+  researchBrief: string;
 }
 
 interface ProfessorCardProps {
@@ -34,17 +35,18 @@ const ProfessorCard: React.FC<ProfessorCardProps> = ({ professor }) => {
         animate={{ opacity: 1, y: 0 }} // Animation to final state
         transition={{ duration: 0.4 }} // Duration of the animation
       >
-        <div className="flex items-center p-4">
+        <div className="flex items-center p-4 sm:grid sm:grid-cols-6 bg-white rounded-lg shadow-md overflow-hidden">
           <img
             src={professor.pic}
             alt={professor.name}
-            className="w-20 h-28 rounded object-cover mr-4"
+            className=" w-20 h-28 rounded object-cover"
           />
-          <div className="flex flex-col">
+
+          <div className="flex flex-col items-center justify-center p-4 sm:col-span-5">
             <h3 className="text-xl font-bold text-gray-800">
               {professor.name}
             </h3>
-            <p className="text-sm text-gray-600">{professor.researchDesc}</p>
+            <p className="text-sm text-gray-600">{professor.researchBrief}</p>
           </div>
         </div>
       </motion.div>
