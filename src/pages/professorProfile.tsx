@@ -63,7 +63,7 @@ interface ProfessorImageProps {
 }
 const ProfessorImage: React.FC<ProfessorImageProps> = ({ professor }) => {
   return (
-    <>
+    <div>
       <img
         src={professor.pic}
         alt={professor.name}
@@ -92,7 +92,7 @@ const ProfessorImage: React.FC<ProfessorImageProps> = ({ professor }) => {
         <p>Phone: {professor.contact.phone}</p>
         <p>Office: {professor.contact.office}</p>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -124,7 +124,7 @@ export function ProfessorProfilePage() {
   };
   return (
     <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div className="flex flex-col items-center md:items-start">
+      <div className="flex items-center justify-center md:items-start ">
         <ProfessorImage professor={professor} />
       </div>
 

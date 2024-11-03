@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 ${
+      className={`md:sticky top-0 ${
         scrolled
           ? "bg-white text-black"
           : "bg-transparent hover:bg-white hover:text-black"
