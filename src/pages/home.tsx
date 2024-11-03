@@ -5,12 +5,12 @@ import UpcomingEvents from "../components/UpcomingEvents";
 function HomePage() {
   return (
     <>
-      {/* Main Content Section */}
+      {/* Main content */}
       <div className="relative z-10 pt-[65vh] bg-white">
         <div className="homepage-background"></div>
-        {/* Start after background image */}
+        {/* Skip a bit after bg image */}
         <div className="container mx-auto px-8 py-16">
-          {/* Overlay Welcome Section */}
+          {/* Welcome section */}
           <motion.h1
             className="text-4xl font-bold text-center mb-4"
             initial={{ opacity: 0, y: -20 }}
@@ -28,7 +28,7 @@ function HomePage() {
             Discover the latest updates in research, upcoming events, and more.
           </motion.p>
 
-          {/* News Preview Section */}
+          {/* News preview */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             <motion.div
               className="bg-white shadow-lg rounded p-6 flex flex-col items-center justify-center"

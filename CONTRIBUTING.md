@@ -15,8 +15,9 @@ We welcome contributions from students and faculty! To contribute:
 
 ## Communication
 
-- Slack (?)
+- Discord
 - Reach me at mobj@cmu.edu
+- Reach out to opencmuq@andrew.cmu.edu
 
 ## License (Subject to change?)
 

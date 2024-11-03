@@ -26,12 +26,31 @@ Welcome to the Department Website repository for the Carnegie Mellon University 
 
 ## Getting Started
 
+Check if you have npm & node installed:
+
+> node -v
+> npm -v
+
+Checkout
+https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+
 ### Prerequisites
 
 - npm
+- nodejs
 
 ### Installation
 
+> npm install
+
+Installs all the required packages needed
+
 ## Development
 
+To test on a local test environment:
+
+> npm run dev
+
 ## Building for Production
+
+TODO

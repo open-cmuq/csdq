@@ -21,7 +21,6 @@ export default function Header() {
     };
   }, []);
 
-  console.log("header rendering");
   return (
     <header
       className={`sticky top-0 ${
