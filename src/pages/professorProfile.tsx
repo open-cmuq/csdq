@@ -2,29 +2,9 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getProfessor } from "../professors";
 
-interface ProfessorProfile {
-  name: string;
-  id: string;
-  pic: string;
-  researchDesc: string;
-  contact: {
-    email: string;
-    website: string;
-    googleScholar: string;
-    phone: string;
-    office: string;
-  };
-  currentProjects: Project[];
-  pastProjects: Project[];
-}
-
-interface Project {
-  title: string;
-  type: string;
-  status: string;
-  description: string;
-  applyBy?: string;
-}
+import { ProfessorProfile } from "../types";
+import ProfessorImage from "../components/ProfessorImage";
+import ProjectCard from "../components/ProjectCard";
 
 interface ProfileLoaderData {
   professor: ProfessorProfile;
@@ -41,60 +21,6 @@ export async function loader({
   }
   return { professor };
 }
-
-interface ProjectCardProps {
-  project: Project;
-}
-
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  return (
-    <div className="border p-4 mb-4">
-      <h2 className="font-semibold">{project.title}</h2>
-      <p>Type: {project.type}</p>
-      <p>Status: {project.status}</p>
-      <p>{project.description}</p>
-      {project.applyBy && <p>Apply By: {project.applyBy}</p>}
-    </div>
-  );
-};
-
-interface ProfessorImageProps {
-  professor: ProfessorProfile;
-}
-const ProfessorImage: React.FC<ProfessorImageProps> = ({ professor }) => {
-  return (
-    <div>
-      <img
-        src={professor.pic}
-        alt={professor.name}
-        className="w-40 h-52 rounded mb-4"
-      />
-      <div className="text-left space-y-2">
-        <p>
-          Email:{" "}
-          <a
-            href={`mailto:${professor.contact.email}`}
-            className="text-blue-500"
-          >
-            {professor.contact.email}
-          </a>
-        </p>
-        <p>
-          <a href={professor.contact.website} className="text-blue-500">
-            Professional Website
-          </a>
-        </p>
-        <p>
-          <a href={professor.contact.googleScholar} className="text-blue-500">
-            Google Scholar
-          </a>
-        </p>
-        <p>Phone: {professor.contact.phone}</p>
-        <p>Office: {professor.contact.office}</p>
-      </div>
-    </div>
-  );
-};
 
 enum Tab {
   Current = 1,
