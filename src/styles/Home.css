@@ -11,7 +11,8 @@
 
 nav button {
   padding: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0) /*rgba(0, 0, 0, 0.3)*/;
+  /* Replaced transparent border with Iron Gray at 0 opacity */
+  border: 2px solid rgba(109, 110, 113, 0); /* Iron Gray: #6D6E71 */
   border-radius: 0.2em;
   background-color: transparent;
   cursor: pointer;
@@ -23,10 +24,16 @@ nav button {
 
 nav button:hover {
   opacity: 0.6;
-  color: red;
-  /* background-color: red; */
-  border: 2px solid rgba(255, 255, 255, 1) /*rgba(0, 0, 0, 0.3)*/;
-  border-color: rgba(0, 0, 0, 0.3) /*rgba(255, 255, 255, 1)*/;
+  /* Replaced 'red' with Carnegie Red */
+  color: #c41230; /* Carnegie Red: #C41230 */
+  /* Uncomment and replace with Carnegie Red if background color is desired on hover */
+  /* background-color: #C41230; */
+
+  /* Replaced white border with Iron Gray at 30% opacity */
+  border: 2px solid rgba(109, 110, 113, 0.3); /* Iron Gray: #6D6E71 */
+
+  /* Replaced black semi-transparent border color with Iron Gray at 30% opacity */
+  border-color: rgba(109, 110, 113, 0.3); /* Iron Gray: #6D6E71 */
 }
 
 .homepage-background {

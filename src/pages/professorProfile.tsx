@@ -66,9 +66,9 @@ export function ProfessorProfilePage() {
             }}
             className={`m-2 p-2 font-bold border rounded-t-md ${
               tab === Tab.Current
-                ? "bg-indigo-500 text-white border-indigo-500"
+                ? "bg-carnegie-red text-white border-carnegie-red"
                 : "bg-gray-100 text-gray-700 border-gray-300"
-            } hover:bg-indigo-400 hover:text-white transition`}
+            } hover:bg-scots-rose hover:text-white transition`}
           >
             Current
           </button>
@@ -79,9 +79,9 @@ export function ProfessorProfilePage() {
             }}
             className={`m-2 p-2 font-bold border rounded-t-md ${
               tab === Tab.Past
-                ? "bg-indigo-500 text-white border-indigo-500"
+                ? "bg-carnegie-red text-white border-carnegie-red"
                 : "bg-gray-100 text-gray-700 border-gray-300"
-            } hover:bg-indigo-400 hover:text-white transition`}
+            } hover:bg-scots-rose hover:text-white transition`}
           >
             Past
           </button>

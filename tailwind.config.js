@@ -11,6 +11,27 @@ module.exports = {
         turquoise: "#50BDB8", // RGB: 80, 189, 184
         lightGrey: "#E0E0E0", // RGB: 224, 224, 224
         pureWhite: "#FFFFFF", // RGB: 255, 255, 255
+        /* Core Colors */
+        "carnegie-red": "#C41230",
+        "black-cmu": "#000000",
+        "iron-gray": "#6D6E71",
+        "steel-gray": "#E0E0E0",
+
+        /* Secondary Colors */
+        "scots-rose": "#EF3A47",
+        "gold-thread": "#FDB515",
+        "green-thread": "#009647",
+        "teal-thread": "#008F91",
+        "blue-thread": "#043673",
+        "highlands-sky-blue": "#007BC0",
+
+        /* Campus Palette */
+        "machinery-hall-tan": "#BCB49E",
+        "kittanning-brick-beige": "#E4DAC4",
+        "hornbostel-teal": "#1F4C4C",
+        "palladian-green": "#719F94",
+        "weaver-blue": "#182C4B",
+        "skibo-red": "#941120",
       },
       // for professorProfile.tsx
       keyframes: {

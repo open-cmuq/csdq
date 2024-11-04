@@ -31,9 +31,7 @@ export default function News() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-12 text-center bg-blue-300 p-8">
-        News
-      </h1>
+      <h1 className="text-3xl font-bold mb-12 text-center p-8">News</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {newsArticles.map((article) => (
           <motion.div

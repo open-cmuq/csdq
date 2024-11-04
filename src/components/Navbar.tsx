@@ -61,7 +61,7 @@ export default function Navbar() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           type="button"
-          className="p-2 rounded-md text-gray-700 hover:bg-gray-200 focus:outline-none"
+          className="p-2 rounded-md text-iron-gray hover:bg-gray-200 focus:outline-none"
           aria-controls="mobile-menu"
           aria-expanded={isOpen}
         >
