@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "open-sans": ['"Open Sans"', "sans-serif"],
+      },
       colors: {
         woodBrown: "#9C6B4F", // RGB: 156, 107, 79
         turquoise: "#50BDB8", // RGB: 80, 189, 184
