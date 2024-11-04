@@ -5,6 +5,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
+
   interface NavbarItemProps {
     name: string;
     link: string;
@@ -12,7 +13,7 @@ export default function Navbar() {
 
   const NavbarItem: React.FC<NavbarItemProps> = ({ name, link }) => {
     return (
-      <Link to={`/${link}`} className="px-4 py-2 text-sm">
+      <Link to={link} className="px-4 py-2 text-sm">
         <button>{name}</button>
       </Link>
     );
@@ -47,17 +48,18 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <nav className="flex justify-center items-center space-x-4 font-bold col-span-2 relative p-4">
+    <nav className="relative p-4">
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center space-x-4">
-        <NavbarItem name="Home" link="#" />
-        <NavbarItem name="Events" link="events" />
-        <NavbarItem name="Research" link="research" />
-        <NavbarItem name="News" link="news" />
+        <NavbarItem name="Home" link="/" />
+        <NavbarItem name="Events" link="/events" />
+        <NavbarItem name="Research" link="/research" />
+        <NavbarItem name="News" link="/news" />
       </div>
 
-      {/* Hamburger Button for Mobile */}
-      <div className="absolute right-4 top-0 sm:hidden z-50">
+      {/* Wrapper for Hamburger Button and Mobile Menu */}
+      <div ref={menuRef} className="absolute right-4 top-0 sm:hidden z-50">
+        {/* Hamburger Button for Mobile */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           type="button"
@@ -86,22 +88,19 @@ export default function Navbar() {
             />
           </svg>
         </button>
-      </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div
-          ref={menuRef}
-          className="sm:hidden absolute top-12 right-4 bg-white border rounded shadow-md z-50"
-        >
-          <div className="flex flex-col items-start p-2 space-y-2">
-            <NavbarItem name="Home" link="#" />
-            <NavbarItem name="Events" link="events" />
-            <NavbarItem name="Research" link="research" />
-            <NavbarItem name="News" link="news" />
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="absolute top-12 right-0 bg-white border rounded shadow-md z-40">
+            <div className="flex flex-col items-start p-2 space-y-2">
+              <NavbarItem name="Home" link="/" />
+              <NavbarItem name="Events" link="/events" />
+              <NavbarItem name="Research" link="/research" />
+              <NavbarItem name="News" link="/news" />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 }
