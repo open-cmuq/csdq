@@ -70,7 +70,7 @@ function UpcomingEvents() {
       <p className="m-3 p-4 text-3xl font-bold flex justify-start ">
         Upcoming CS Events:
       </p>
-      <div className="flex flex-wrap justify-center items-center mt-2 bg-skibo-red p-4 gap-6">
+      <div className="flex flex-wrap justify-center items-center mt-2 bg-gray-800 p-4 gap-6">
         {events.slice(0, 3).map((event, idx) => (
           <UpcomingEventCard key={idx} event={event} />
         ))}

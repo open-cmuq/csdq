@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "open-sans": ['"Open Sans"', "sans-serif"],
+        "source-serif": ["Source Serif Pro", "serif"],
       },
       colors: {
         woodBrown: "#9C6B4F", // RGB: 156, 107, 79
