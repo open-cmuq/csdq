@@ -12,7 +12,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           href={project.link}
           rel="noopener noreferrer"
           target="_blank"
-          className="text-gray-800 hover:underline font-semibold text-xl mb-2"
+          className="text-gray-800 hover:underline font-semibold text-3xl mb-2"
         >
           {project.title}
         </a>
@@ -20,23 +20,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <h2 className="font-semibold text-xl mb-2">{project.title}</h2>
       )}
 
-      <p className="text-gray-700">
-        <span className="font-medium">Type:</span> {project.type}
-      </p>
-      <p className="text-gray-700">
-        <span className="font-medium">Status:</span> {project.status}
-      </p>
+      <div className="text-gray-700 text-lg">
+        <p>
+          <span className="font-medium">Type: </span> {project.type}{" "}
+        </p>
+
+        <p>
+          <span className="font-medium">Status: </span> {project.status}
+        </p>
+      </div>
 
       {project.students && project.students.length > 0 && (
-        <div className="mt-2">
-          <p className="text-gray-700">
-            <span className="font-medium">Students:</span>{" "}
-            {project.students.join(", ")}
-          </p>
-        </div>
+        <p className="text-gray-700 text-lg">
+          <span className="font-medium">Students:</span>{" "}
+          {project.students.join(", ")}
+        </p>
       )}
 
-      <div className="flex justify-center mt-2">
+      <div className="flex justify-center mt-2 text-2xl">
         <p className="text-gray-600 text-justify">{project.description}</p>
       </div>
 

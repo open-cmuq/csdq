@@ -56,7 +56,7 @@ export function ProfessorProfilePage() {
 
       {/* Middle Section: Description */}
       <div className="md:col-span-2">
-        <h1 className="text-2xl font-bold mb-2">{professor.name}</h1>
+        <h1 className="text-4xl font-bold mb-2">{professor.name}</h1>
         <p className="mb-4">{professor.researchDesc}</p>
 
         <div>

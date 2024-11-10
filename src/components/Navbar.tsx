@@ -15,7 +15,7 @@ export default function Navbar() {
     return (
       <Link
         to={link}
-        className="px-4 text-sm py-1 text-white font-bold font-open-sans"
+        className="px-4 text-xl py-1 text-white font-bold font-open-sans"
       >
         <button className=" hover:opacity-70 hover:border-opacity-30">
           {name}
@@ -62,7 +62,7 @@ export default function Navbar() {
 
   return (
     <div className="bg-skibo-red py-1">
-      <div className="mx-2 s">
+      <div className="mx-2">
         <div className="container mx-auto">
           {/* Desktop Menu */}
           <div className="hidden sm:flex justify-center space-x-4 ">
