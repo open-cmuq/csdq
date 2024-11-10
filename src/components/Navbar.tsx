@@ -11,7 +11,7 @@ export default function Navbar() {
     link: string;
   }
 
-  const NavbarItem: React.FC<NavbarItemProps> = ({ name, link }) => {
+  const DesktopNavbarItem: React.FC<NavbarItemProps> = ({ name, link }) => {
     return (
       <Link
         to={link}
@@ -20,6 +20,14 @@ export default function Navbar() {
         <button className=" hover:opacity-70  hover:border-solid hover:border-opacity-30 hover:border-white hover:border-2">
           {name}
         </button>
+      </Link>
+    );
+  };
+
+  const MobileNavbarItem: React.FC<NavbarItemProps> = ({ name, link }) => {
+    return (
+      <Link to={link} className="px-4 py-2 text-sm">
+        <button>{name}</button>
       </Link>
     );
   };
@@ -57,14 +65,14 @@ export default function Navbar() {
       <div className="container mx-auto">
         {/* Desktop Menu */}
         <div className="hidden sm:flex items-center justify-center space-x-4 ">
-          <NavbarItem name="Home" link="/" />
-          <NavbarItem name="Events" link="/events" />
-          <NavbarItem name="Research" link="/research" />
-          <NavbarItem name="News" link="/news" />
+          <DesktopNavbarItem name="Home" link="/" />
+          <DesktopNavbarItem name="Events" link="/events" />
+          <DesktopNavbarItem name="Research" link="/research" />
+          <DesktopNavbarItem name="News" link="/news" />
         </div>
 
         {/* Wrapper for Hamburger Button and Mobile Menu */}
-        <div ref={menuRef} className="absolute right-4 top-0 sm:hidden z-50">
+        <div ref={menuRef} className="absolute right-4 top-8 sm:hidden z-50">
           {/* Hamburger Button for Mobile */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -97,12 +105,12 @@ export default function Navbar() {
 
           {/* Mobile Menu */}
           {isOpen && (
-            <div className="absolute top-12 right-0 bg-white border rounded shadow-md z-40">
+            <div className="absolute top-8 right-0 bg-white border rounded shadow-md z-40">
               <div className="flex flex-col items-start p-2 space-y-2">
-                <NavbarItem name="Home" link="/" />
-                <NavbarItem name="Events" link="/events" />
-                <NavbarItem name="Research" link="/research" />
-                <NavbarItem name="News" link="/news" />
+                <MobileNavbarItem name="Home" link="/" />
+                <MobileNavbarItem name="Events" link="/events" />
+                <MobileNavbarItem name="Research" link="/research" />
+                <MobileNavbarItem name="News" link="/news" />
               </div>
             </div>
           )}
