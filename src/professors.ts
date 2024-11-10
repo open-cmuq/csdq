@@ -287,7 +287,7 @@ const professorProfiles: ProfessorProfile[] = [
         description:
           "Generating a navigable representation of indoor spaces has great potential to transform the experience of services indoors. The potential of indoor navigable representations is a reflection of the transformations brought forth by the digitization of outdoor maps, which enabled technological services to be enhanced with new information like localization and live navigation outdoors. To trigger a similar scale of transformation indoors, this thesis investigates methods that can be used to take widely available, engineering-class layout files of indoor spaces (known as CAD drawings, often exported to flattened PNG images), and convert them into a navigable representation that represents the information necessary to supplement systems that wish to map a located person to an area indoors and utilize our representation to navigate users from one indoor area to another. Through experimentation with existing indoor representation formats, we determine our navigable representation to be in the form of a graph structure that takes key indoor areas as its nodes and navigable links as its edges. To form this navigable graph structure, we explore many different methods and ultimately form a staged pipeline that combines our discovered methodologies to converge to an accurate graph representation of indoor spaces.",
         students: ["Huda Baig", "Ammar Karkour"],
-        link: "https://kilthub.cmu.edu/articles/poster/Exploiting_Quantum_Computing_for_Indoor_Localization/24148275?file=42367407",
+        link: "https://kilthub.cmu.edu/articles/poster/Indoor_Mapmaking_From_Map_Drawing_to_Navigable_Representations/26129077?file=47314213",
       },
     ],
   },

@@ -40,9 +40,7 @@ export default function Events() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-12 text-center  p-8">
-        Upcoming Events
-      </h1>
+      <h1 className="text-3xl font-bold mb-12 text-center">Upcoming Events</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {events.map((event) => (
           <motion.div

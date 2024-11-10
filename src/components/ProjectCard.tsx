@@ -12,7 +12,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           href={project.link}
           rel="noopener noreferrer"
           target="_blank"
-          className="text-teal-thread hover:underline font-semibold text-xl mb-2"
+          className="text-gray-800 hover:underline font-semibold text-xl mb-2"
         >
           {project.title}
         </a>
@@ -27,16 +27,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <span className="font-medium">Status:</span> {project.status}
       </p>
 
-      <div className="flex justify-center mt-2">
-        <p className="text-gray-600 text-justify">{project.description}</p>
-      </div>
-
-      {project.applyBy && (
-        <p className="text-gray-700 mt-2">
-          <span className="font-medium">Apply By:</span> {project.applyBy}
-        </p>
-      )}
-
       {project.students && project.students.length > 0 && (
         <div className="mt-2">
           <p className="text-gray-700">
@@ -46,17 +36,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
       )}
 
-      {project.link && (
-        <div className="mt-2">
-          <a
-            href={project.link}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="text-blue-500 hover:underline text-sm"
-          >
-            View Project Details
-          </a>
-        </div>
+      <div className="flex justify-center mt-2">
+        <p className="text-gray-600 text-justify">{project.description}</p>
+      </div>
+
+      {project.applyBy && (
+        <p className="text-gray-700 mt-2">
+          <span className="font-medium">Apply By:</span> {project.applyBy}
+        </p>
       )}
     </div>
   );

@@ -29,7 +29,7 @@ const ProfessorImage: React.FC<ProfessorImageProps> = ({ professor }) => {
         <div className="w-full text-left space-y-2">
           {/* Email */}
           <p className="flex items-center text-gray-700">
-            <FaEnvelope className="mr-2 text-teal-thread" />
+            <FaEnvelope className="mr-2 text-iron-gray" />
             <a
               href={`mailto:${professor.contact.email}`}
               className="text-blue-500 hover:underline"
@@ -40,7 +40,7 @@ const ProfessorImage: React.FC<ProfessorImageProps> = ({ professor }) => {
           {/* Website (Optional) */}
           {professor.contact.website && (
             <p className="flex items-center text-gray-700">
-              <FaGlobe className="mr-2 text-teal-thread" />
+              <FaGlobe className="mr-2 text-iron-gray" />
               <a
                 href={professor.contact.website}
                 className="text-blue-500 hover:underline"
@@ -53,7 +53,7 @@ const ProfessorImage: React.FC<ProfessorImageProps> = ({ professor }) => {
           )}
           {/* Google Scholar */}
           <p className="flex items-center text-gray-700">
-            <FaGoogle className="mr-2 text-teal-thread" />
+            <FaGoogle className="mr-2 text-iron-gray" />
             <a
               href={professor.contact.googleScholar}
               className="text-blue-500 hover:underline"
@@ -65,12 +65,12 @@ const ProfessorImage: React.FC<ProfessorImageProps> = ({ professor }) => {
           </p>
           {/* Phone */}
           <p className="flex items-center text-gray-700">
-            <FaPhone className="mr-2 text-teal-thread" />
+            <FaPhone className="mr-2 text-iron-gray" />
             Phone: {professor.contact.phone}
           </p>
           {/* Office */}
           <p className="flex items-center text-gray-700">
-            <FaBuilding className="mr-2 text-teal-thread" />
+            <FaBuilding className="mr-2 text-iron-gray" />
             Office: {professor.contact.office}
           </p>
         </div>
