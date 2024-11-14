@@ -1,19 +1,15 @@
 import React from "react";
-
-interface Event {
-  title: string;
-  description: string;
-  date: Date;
-}
+import { useLoaderData } from "react-router-dom";
+import { Event } from "../types";
 
 interface UpcomingEventCardProps {
   event: Event;
 }
 
 const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({ event }) => {
-  const day = event.date.toLocaleDateString("en-US", { day: "numeric" });
-  const month = event.date.toLocaleDateString("en-US", { month: "short" });
-  const hour = event.date.toLocaleTimeString("en-US", {
+  const day = event.date.toLocaleDateString("en-QA", { day: "numeric" });
+  const month = event.date.toLocaleDateString("en-QA", { month: "short" });
+  const hour = event.date.toLocaleTimeString("en-QA", {
     hour: "numeric",
     minute: "numeric",
     hour12: true,
@@ -36,43 +32,26 @@ const UpcomingEventCard: React.FC<UpcomingEventCardProps> = ({ event }) => {
         {/* event details */}
         <div className="sm:col-span-5 p-4">
           <h3 className="text-black font-bold text-lg">{event.title}</h3>
-          <p className="text-iron-gray text-sm mt-1">{event.description}</p>
+          <p className="text-iron-gray text-sm mt-1">{event.desc}</p>
         </div>
       </div>
     </div>
   );
 };
 
-function UpcomingEvents() {
-  // example Event Data
-  const events = [
-    {
-      date: new Date("2024-09-01T10:30:00"),
-      title: "AI and Machine Learning Seminar",
-      description:
-        "Join us for an insightful seminar on the latest trends in AI and Machine Learning.",
-    },
-    {
-      date: new Date("2024-09-15T09:00:00"),
-      title: "Robotics Workshop",
-      description:
-        "Hands-on workshop exploring the world of robotics and automation technologies.",
-    },
-    {
-      date: new Date("2024-10-05T14:00:00"),
-      title: "Cybersecurity Conference",
-      description:
-        "A conference dedicated to the latest in cybersecurity research and practices.",
-    },
-  ];
+interface EventLoaderData {
+  events: Event[];
+}
 
+function UpcomingEvents() {
+  const { events }: EventLoaderData = useLoaderData() as EventLoaderData;
   return (
     <>
       <p className="m-3 p-4 text-3xl font-bold flex justify-start ">
         Upcoming CS Events:
       </p>
       <div className="flex flex-wrap justify-center items-center mt-2 bg-gray-800 p-4 gap-6">
-        {events.slice(0, 3).map((event, idx) => (
+        {events.slice(0, 3).map((event: Event, idx: number) => (
           <UpcomingEventCard key={idx} event={event} />
         ))}
       </div>

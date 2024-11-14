@@ -16,6 +16,8 @@ import {
 } from "./pages/professorProfile.tsx";
 import ProfessorError from "./pages/professor-error.tsx";
 
+import { loader as eventLoader } from "./pages/events.tsx";
+
 // TODO: perhaps turn the routes into JSX
 const router = createBrowserRouter([
   {
@@ -26,10 +28,12 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+        loader: eventLoader,
       },
       {
         path: "/events",
         element: <Events />,
+        loader: eventLoader,
       },
       {
         path: "/research",

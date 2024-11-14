@@ -1,42 +1,21 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+import { getEvents } from "../events";
+import { Event } from "../types";
 import { motion } from "framer-motion";
 
-// Mock data for events
-const events = [
-  {
-    id: 1,
-    desc: "Join us for a day of insightful talks on AI and Machine Learning.",
-    date: "September 30, 2024",
-    where: "Room 1185",
-  },
-  {
-    id: 2,
-    desc: "Hands-on workshop on Robotics and Automation.",
-    date: "October 12, 2024",
-    where: "Room 1185",
-  },
-  {
-    id: 3,
-    desc: "Seminar on Climate Change and Sustainable Technologies.",
-    date: "November 5, 2024",
-    where: "Room 1185",
-  },
-  {
-    id: 4,
-    desc: "Seminar on Climate Change and Sustainable Technologies.",
-    date: "November 5, 2024",
-    where: "Room 1185",
-  },
-  {
-    id: 5,
-    desc: "Seminar on Climate Change and Sustainable Technologies.",
-    date: "November 5, 2024",
-    where: "Room 1185",
-  },
-];
+interface EventLoaderData {
+  events: Event[];
+}
+
+export async function loader({ params }: any): Promise<EventLoaderData> {
+  const events = await getEvents();
+  return { events };
+}
 
 export default function Events() {
   const defaultPhoto = "/images/cs_logo.png";
+  const { events }: EventLoaderData = useLoaderData() as EventLoaderData;
 
   return (
     <div className="p-8">
@@ -57,7 +36,12 @@ export default function Events() {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <p className="text-gray-600 text-sm mb-2">{event.date}</p>
+              <p className="text-gray-600 text-sm mb-2">
+                {event.date.toLocaleDateString("en-QA", {
+                  day: "numeric",
+                  month: "long",
+                })}
+              </p>
               <p className="text-lg font-semibold">{event.desc}</p>
               {event.where && (
                 <p className="text-gray-600 text-sm mb-2">{event.where}</p>

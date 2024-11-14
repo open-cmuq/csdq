@@ -2,3 +2,4 @@
 
 export * from "./project";
 export * from "./professor";
+export * from "./event";
