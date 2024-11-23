@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "title": "personal work",
+    "desc": "...",
+    "date": "2024-11-16T06:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 2,
+    "title": "personal work",
+    "desc": "...",
+    "date": "2024-11-23T06:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 3,
+    "title": "personal work",
+    "desc": "...",
+    "date": "2024-11-30T06:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 4,
+    "title": "personal work",
+    "desc": "...",
+    "date": "2024-12-07T06:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 5,
+    "title": "personal work",
+    "desc": "...",
+    "date": "2024-12-14T06:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 6,
+    "title": "Personal work / AA",
+    "desc": "...",
+    "date": "2024-11-15T09:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 7,
+    "title": "Personal work / AA",
+    "desc": "...",
+    "date": "2024-11-22T09:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 8,
+    "title": "Personal work / AA",
+    "desc": "...",
+    "date": "2024-11-29T09:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 9,
+    "title": "Personal work / AA",
+    "desc": "...",
+    "date": "2024-12-06T09:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 10,
+    "title": "Personal work / AA",
+    "desc": "...",
+    "date": "2024-12-13T09:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 11,
+    "title": "catch up on podcasts / articles / research",
+    "desc": "...",
+    "date": "2024-11-17T14:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 12,
+    "title": "catch up on podcasts / articles / research",
+    "desc": "...",
+    "date": "2024-11-24T14:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 13,
+    "title": "catch up on podcasts / articles / research",
+    "desc": "...",
+    "date": "2024-12-01T14:00:00.000Z",
+    "where": "TBD"
+  },
+  {
+    "id": 14,
+    "title": "catch up on podcasts / articles / research",
+    "desc": "...",
+    "date": "2024-12-08T14:00:00.000Z",
+    "where": "TBD"
+  }
+]

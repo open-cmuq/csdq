@@ -1,4 +1,5 @@
 import { Event } from "./types";
+import eventsData from "./events.json";
 
 // Mock data for events
 const events: Event[] = [
@@ -33,5 +34,11 @@ const events: Event[] = [
 ];
 
 export async function getEvents(): Promise<Event[]> {
+  // Convert date strings back to Date objects
+  const events = eventsData.map((event) => ({
+    ...event,
+    date: new Date(event.date),
+  }));
+
   return events;
 }
