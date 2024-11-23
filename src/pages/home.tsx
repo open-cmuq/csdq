@@ -4,7 +4,7 @@ import UpcomingEvents from "../components/UpcomingEvents";
 
 const Footer: React.FC = () => (
   <footer className="bg-gray-700 text-white text-center py-4">
-    &copy; 2024 Your Company. All rights reserved.
+    &copy; 2024 Carnegie Mellon University In Qatar. All rights reserved.
   </footer>
 );
 
