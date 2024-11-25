@@ -4,4 +4,6 @@ export interface Event {
   desc: string;
   date: Date;
   where: string;
+  type: string;
+  organizer: string;
 }
