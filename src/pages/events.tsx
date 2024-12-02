@@ -33,6 +33,7 @@ export default function Events() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
   const handleTypeChange = (type: string) => {
     const lowerType = type.toLowerCase();
@@ -64,18 +65,45 @@ export default function Events() {
   return (
     <div className="p-8">
       <h1 className="text-4xl font-bold mb-8 text-center">Upcoming Events</h1>
-      <div className="flex flex-row justify-center space-x-10">
+      <div className="flex flex-col lg:flex-row justify-center lg:space-x-10">
+        {/* Toggle button */}
+        <button
+          onClick={() => setIsFiltersOpen(!isFiltersOpen)}
+          className="flex items-center lg:hidden mb-4"
+        >
+          <span className="mr-2">
+            {isFiltersOpen ? "Hide Filters" : "Show Filters"}
+          </span>
+          <svg
+            className={`w-5 h-5 transform transition-transform ${
+              isFiltersOpen ? "rotate-90" : "rotate-0"
+            }`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
         {/* Filters */}
-        <div className="w-full max-w-md mr-8">
+        <div
+          className={`w-full lg:max-w-md lg:mr-8 
+                      ${isFiltersOpen ? "" : "hidden"} lg:block`}
+        >
           <div className="flex flex-col items-center">
             <input
               type="text"
               placeholder="Search events..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-2 mb-4 border rounded text-center"
+              className="w-full sm:max-w-sm mx-auto p-2 mb-4 border rounded text-center"
             />
-            <div className="mb-4">
+            <div className="w-full sm:max-w-sm mx-auto mb-4">
               <Calendar
                 onChange={(date) => setSelectedDate(date as Date)}
                 value={selectedDate}
@@ -111,60 +139,57 @@ export default function Events() {
           </div>
         </div>
         {/* Event List */}
-        <div className="w-full max-w-6xl">
+        <div className="w-full lg:max-w-6xl mt-5 lg:mt-0">
           {filteredEvents.length > 0 ? (
             filteredEvents.map((event) => (
+              /* Event Card */
               <motion.div
                 key={event.id}
-                className="bg-white shadow-md rounded mb-8 p-6"
+                className="bg-white shadow-md rounded-lg mb-8 flex flex-col lg:flex-row space-y-5"
                 whileHover={{ scale: 1.02 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="flex">
-                  {/* Left Side - Date and Time */}
-                  <div className="w-1/4 flex flex-col items-center justify-center border-r pr-4">
-                    <p className="text-gray-800 text-xl font-semibold">
-                      {event.date.toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </p>
-                    <p className="text-gray-600">
-                      {event.date.toLocaleDateString()}
-                    </p>
-                    <p className="mt-2 text-gray-600 text-center">
-                      {event.where}
-                    </p>
+                {/* Left Side - Date and Time */}
+                <div className="rounded-l-lg sm:rounded-t-lg bg-steel-gray lg:w-1/4 flex flex-col items-center justify-center pt-6 lg:pt-2 pb-2">
+                  <p className="bg-carnegie-red text-white font-bold text-lg p-5 py-3 rounded mb-4 sm:mt-4">
+                    {event.date.toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
+                  <p className="text-gray-600">
+                    {event.date.toLocaleDateString()}
+                  </p>
+                  <p className="mt-2 text-gray-600 text-center">
+                    {event.where}
+                  </p>
+                </div>
+                {/* Right Side - Event Details */}
+                <div className="rounded-r-lg sm:rounded-b-lg lg:w-3/4 lg:pl-6 flex flex-col justify-between h-full p-6">
+                  <div>
+                    <h3 className="text-black text-lg font-bold">
+                      {event.title}
+                    </h3>
+                    <p className="text-iron-gray text-sm">{event.desc}</p>
                   </div>
-                  {/* Right Side - Event Details */}
-                  <div className="w-3/4 pl-6 flex flex-col justify-between h-full">
-                    <div>
-                      <h3 className="text-gray-800 text-2xl font-bold">
-                        {event.title}
-                      </h3>
-                      <p className="text-gray-800 mt-2 text-md">{event.desc}</p>
-                    </div>
-                    <div className="flex justify-between items-center mt-8">
-                      <p className="text-gray-600 text-sm">
-                        {event.organizer}
-                      </p>
-                      <a
-                        href={`https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent(
-                          event.title
-                        )}&dates=${formatDateForCalendar(
-                          event.date
-                        )}&details=${encodeURIComponent(
-                          event.desc
-                        )}&location=${encodeURIComponent(event.where)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-blue-500 hover:underline"
-                      >
-                        Add to Calendar
-                      </a>
-                    </div>
+                  <div className="flex justify-between items-center mt-8">
+                    <p className="text-gray-600 text-sm">{event.organizer}</p>
+                    <a
+                      href={`https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent(
+                        event.title
+                      )}&dates=${formatDateForCalendar(
+                        event.date
+                      )}&details=${encodeURIComponent(
+                        event.desc
+                      )}&location=${encodeURIComponent(event.where)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-blue-500 hover:underline"
+                    >
+                      Add to Calendar
+                    </a>
                   </div>
                 </div>
               </motion.div>
