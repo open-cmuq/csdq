@@ -3,9 +3,11 @@ import AppHeader from "./components/Header";
 
 export default function RootLayout() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <AppHeader />
-      <Outlet />
-    </>
+      <main className="flex-1">
+        <Outlet />
+      </main>
+    </div>
   );
 }
